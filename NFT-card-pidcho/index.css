@@ -1,0 +1,184 @@
+/*
+### Font
+
+- Family: [Outfit](https://fonts.google.com/specimen/Outfit)
+- Weights: 300, 400, 600
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+/* -Variables Colors- */
+:root {
+    --mainBg: hsl(217, 54%, 11%);
+    --cardBg: hsl(216, 50%, 16%);
+    --line: hsl(215, 32%, 27%);
+    --white: hsl(0, 0%, 100%);
+    --softBlue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--mainBg);
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--cardBg);
+    height: 28rem;
+    width: 18rem;
+    padding: 20px;
+    margin: auto;
+    border-radius: 7px;
+    box-shadow: -1rem 1.2rem 0 0 rgba(0, 0, 20, 0.129), 
+    1rem 1.2rem 0 0 rgba(0, 0, 20, 0.129);
+    display: flex;
+    flex-direction: column; 
+    cursor: pointer;
+    transition: 800ms ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Hovers Colors Cyan */
+.card:hover .card__details > .card__details-title,
+.card:hover .card__user .card__user-name > span {
+    color: var(--cyan);
+}
+
+.card__equilibrium {
+    position: relative;
+    transition: 1800ms ease;
+}
+
+.card__equilibrium .card__equilibrium-image {
+    height: 14rem;
+    width: 100%;
+    border-radius: 7px;
+    position: relative;
+    z-index: 1;
+}
+
+/* After Element */
+.card__equilibrium::after {
+    width: 4.7rem;
+    height: 3.3rem;
+    content: url(./images/icon-view.svg);
+    background-color: var(--cyan);
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    padding: 5.4rem;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+    visibility: hidden;
+    inset: 0;
+}
+
+/*
+Image Hover Effect --
+*/
+.card:hover > .card__equilibrium::after {
+    visibility: visible;
+    transition: 800ms ease;
+}
+
+.card__details {
+    margin: 10px 0;
+}
+
+.card__details .card__details-title {
+    color: var(--white);
+    font-weight: 500;
+    transition: 800ms ease;
+}
+
+.card__details .card__details-description {
+    color: var(--softBlue);
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+.card__details > .stats {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.stats li.stat__ethereum {
+    color: var(--cyan);
+    position: relative;
+    margin-left: 20px;
+}
+
+.stats li.stat__ethereum::before {
+    content: url(./images/icon-ethereum.svg);
+    position: absolute;
+    top: 0;
+    left: -20px;
+}
+
+.stats li.stat__time {
+    color: var(--softBlue);
+    position: relative;
+}
+
+.stats li.stat__time::before {
+    content: url(./images/icon-clock.svg);
+    position: absolute;
+    top: 2px;
+    left: -20px;
+}
+
+hr.line {
+    border: 1px solid var(--line);
+}
+
+.card__details .card__user {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.card__user .card__user-avatar {
+    height: 2.3rem;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+}
+
+.card__user .card__user-name {
+    margin: 10px 10px;
+    text-align: center;
+    color: var(--softBlue);
+}
+
+.card__user-name > span {
+    color: var(--white);
+    transition: 800ms ease;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 2rem;
+}
+
+
